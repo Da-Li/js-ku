@@ -1,3 +1,4 @@
+<input type="hidden" id="baseurl" value="{{ site.baseurl }}"/>
 <script src="{{ site.baseurl }}/res/js/jquery.js"></script>
 <script src="{{ site.baseurl }}/res/js/jquery.easing.1.3.js"></script>
 <script src="{{ site.baseurl }}/res/js/bootstrap.min.js"></script>
@@ -17,7 +18,7 @@
 		    function(data) {
 		      $.each(data,
 			      function(i, item) {
-			        var content = '<div class="flickr_badge_image"><img src="'+item.img_url+'" alt="'+item.title+'" title="'+item.title+'"> </div>';
+			        var content = '<div class="flickr_badge_image"><img src="'+$("#baseurl").val()+'/'+item.img_url+'" alt="'+item.title+'" title="'+item.title+'"> </div>';
 			        $("#authors_div").append(content);
 			      });
 		    });
