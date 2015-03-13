@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="" />
 <meta name="author" content="http://bootstraptaste.com" />
-
 <link href="/res/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/res/css/fancybox/jquery.fancybox.css" rel="stylesheet">
 <link href="/res/css/jcarousel.css" rel="stylesheet" />
@@ -57,103 +56,84 @@
 	<!-- end header -->
 	<section id="content">
 	<div class="container">
-		<div class="row">
-			<div class="col-lg-8">
-				 	 
-				<article>
-						
+ 		<h1 id="md">md提交规范。</h1>
 
-						<div class="post-image">
-							<div class="post-heading">
-								<h3><a href="#">This is an example of standard post format</a></h3>
-							</div>
-							<img src="img/dummies/blog/img1.jpg" alt="" />
-						</div>
- 						
-						
+<h1 id="section">需要遵守的约定</h1>
 
-						<p>
-							 简介
-						</p>
+<p>1.提交各自文件<code>xxx.md</code>到 <em>_posts</em> 文件夹下。</p>
 
-						<div class="bottom-article">
-							<ul class="meta-post">
-								<li><i class="icon-calendar"></i><a href="#"> Mar 23, 2013</a></li>
-								<li><i class="icon-user"></i><a href="#"> Admin</a></li>
-								<li><i class="icon-folder-open"></i><a href="#"> Blog</a></li>
-								<li><i class="icon-comments"></i><a href="#">4 Comments</a></li>
-							</ul>
-							<a href="#" class="pull-right">Continue reading <i class="icon-angle-right"></i></a>
-						</div>
-				</article>
-				<div id="pagination">
-					<span class="all">Page 1 of 3</span>
-					<span class="current">1</span>
-					<a href="#" class="inactive">2</a>
-					<a href="#" class="inactive">3</a>
-				</div>
-			 
-			</div>
-							<div class="col-lg-4">
-				<aside class="right-sidebar">
-				<div class="widget">
-					<form class="form-search">
-						<input class="form-control" type="text" placeholder="Search..">
-					</form>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Categories</h5>
-					<ul class="cat">
-						<li><i class="icon-angle-right"></i><a href="#">Web design</a><span> (20)</span></li>
-						<li><i class="icon-angle-right"></i><a href="#">Online business</a><span> (11)</span></li>
-						<li><i class="icon-angle-right"></i><a href="#">Marketing strategy</a><span> (9)</span></li>
-						<li><i class="icon-angle-right"></i><a href="#">Technology</a><span> (12)</span></li>
-						<li><i class="icon-angle-right"></i><a href="#">About finance</a><span> (18)</span></li>
-					</ul>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
-					<ul class="recent">
-						<li>
-						<img src="/res/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-						<h6><a href="#">Lorem ipsum dolor sit</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-						<li>
-						<a href="#"><img src="/res/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-						<h6><a href="#">Maiorum ponderum eum</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-						<li>
-						<a href="#"><img src="/res/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-						<h6><a href="#">Et mei iusto dolorum</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-					</ul>
-				</div>
-				<div class="widget">
-					<h5 class="widgetheading">Popular tags</h5>
-					<ul class="tags">
-						<li><a href="#">Web design</a></li>
-						<li><a href="#">Trends</a></li>
-						<li><a href="#">Technology</a></li>
-						<li><a href="#">Internet</a></li>
-						<li><a href="#">Tutorial</a></li>
-						<li><a href="#">Development</a></li>
-					</ul>
-				</div>
-				</aside>
-			</div>
-		</div>
+<p>2.<code>xxx.md</code> 的命名规范 <code>2015-03-12-title.md</code></p>
+
+<p>3.<code>xxx.md</code>的配置</p>
+
+<p>  3.1 categories <em>_posts</em> 下的文件夹/分类</p>
+
+<p>  3.2 show_type 列表展示的类别。[image,slider,video]</p>
+
+<p>  3.3 show_intro 根据 <code>show_type</code>。如果show_type: image 则 show_intro： 就是图片链接地址（相对路径）;</p>
+
+<p>  3.3 intro 简述。</p>
+
+<p>  3.4 title 标题</p>
+
+<p>  3.5 author 作者</p>
+
+<p>  3.6 keyword 页面关键词</p>
+
+<p>  3.6 layout 选择模板（detail_tmp）</p>
+
+<p>4.<a href="http://lixiaoshenxian.com/markdown.html">markdown</a> 写作方式</p>
+
+<hr />
+<p>#注意事项</p>
+
+<p><code>show_type </code>与 <code>show_intro</code> 对照关系。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>show_type</th>
+      <th> </th>
+      <th> </th>
+      <th> </th>
+      <th>show_intro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>image</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>图片路径（相对）</td>
+    </tr>
+    <tr>
+      <td>slider</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>轮播图，图片路径（相对）用 ‘;’分开</td>
+    </tr>
+    <tr>
+      <td>video</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>暂不支持</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<blockquote>
+  <p>其他未尽事宜 联系 qq 1010420114</p>
+</blockquote>
+
+
 	</div>
 	</section>
-	<footer>
+	 <footer>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-3">
@@ -226,7 +206,6 @@
 		</div>
 	</div>
 	</footer>
-	
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
@@ -243,5 +222,7 @@
 <script src="/res/js/jquery.flexslider.js"></script>
 <script src="/res/js/animate.js"></script>
 <script src="/res/js/custom.js"></script>
+<script src="/res/js/js-ku.js"></script>
+<script src="/res/js/google-code-prettify/run_prettify.js?lang-js&skin=tomorrow-night"></script>
 </body>
 </html>
