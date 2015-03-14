@@ -1,12 +1,12 @@
 ---
 layout: detail_tmp
-title: js-ku协作开发文档
-intro: 包含GitHub 基本操作。
+title: Jekyll 安装教程
+intro: Jekyll 安装教程
 categories: test
 keyword: js-ku协作开发，github 教程，jekyll教程
 author: li
 show_type: image
-show_intro: /res/img/page/test/open-source.jpg
+show_intro: /res/img/page/test/open-source.png
 ---
 
 # js-ku协作开发文档
@@ -15,7 +15,7 @@ show_intro: /res/img/page/test/open-source.jpg
 
 ## GitHub 与 Jekyll
 
-![jekyll和github教程](/res/img/page/test/open-source.jpg) 
+![jekyll和github教程](/res/img/page/test/open-source.png) 
 
 
 
