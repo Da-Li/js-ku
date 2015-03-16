@@ -6,7 +6,7 @@ categories: JavaScript
 keyword: JavaScript变量提升,JavaScript函数提升,JavaScript常见问题
 author: li
 show_type: image
-show_intro: /res/img/page/test/open-source.png
+show_intro: /res/img/page/JavaScript/JavaScript-hoisting.png
 ---
 
 #JavaScript 变量提升# 
