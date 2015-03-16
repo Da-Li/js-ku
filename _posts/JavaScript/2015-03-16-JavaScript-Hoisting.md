@@ -1,7 +1,7 @@
 ---
 layout: detail_tmp
 title: JavaScript 声明提升
-intor: JavaScript 声明提升(hoisting) 很容易忽略从而造成Bug
+intro: JavaScript 声明提升(hoisting) 很容易忽略从而造成Bug
 categories: JavaScript
 keyword: JavaScript变量提升,JavaScript函数提升,JavaScript常见问题
 author: li
