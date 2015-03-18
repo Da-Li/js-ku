@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>md提交示例。需要大家遵守。 - js开发库</title>
+<title>JavaScript 声明提升 - js开发库</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="简介">
-<meta name="keywords" content="md提交示例,md提交示例">
+<meta name="description" content="JavaScript 声明提升(hoisting) 很容易忽略从而造成Bug">
+<meta name="keywords" content="JavaScript变量提升,JavaScript函数提升,JavaScript常见问题">
 <meta name="author" content="li">
 <link href="/res/css/bootstrap.min.css" rel="stylesheet" />
 <link href="/res/css/fancybox/jquery.fancybox.css" rel="stylesheet">
@@ -19,6 +19,7 @@
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
 
 </head>
 <body>
@@ -58,80 +59,132 @@
 	<!-- end header -->
 	<section id="content">
 	<div class="container">
- 		<h1 id="md">md提交规范。</h1>
-
-<h1 id="section">需要遵守的约定</h1>
-
-<p>1.提交各自文件<code>xxx.md</code>到 <em>_posts</em> 文件夹下。</p>
-
-<p>2.<code>xxx.md</code> 的命名规范 <code>2015-03-12-title.md</code></p>
-
-<p>3.<code>xxx.md</code>的配置</p>
-
-<p>  3.1 categories <em>_posts</em> 下的文件夹/分类</p>
-
-<p>  3.2 show_type 列表展示的类别。[image,slider,video]</p>
-
-<p>  3.3 show_intro 根据 <code>show_type</code>。如果show_type: image 则 show_intro： 就是图片链接地址（相对路径）;</p>
-
-<p>  3.3 intro 简述。</p>
-
-<p>  3.4 title 标题</p>
-
-<p>  3.5 author 作者</p>
-
-<p>  3.6 keyword 页面关键词</p>
-
-<p>  3.6 layout 选择模板（detail_tmp）</p>
-
-<p>4.<a href="http://lixiaoshenxian.com/markdown.html">markdown</a> 写作方式</p>
-
-<hr />
-<p>#注意事项</p>
-
-<p><code>show_type </code>与 <code>show_intro</code> 对照关系。</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>show_type</th>
-      <th> </th>
-      <th> </th>
-      <th> </th>
-      <th>show_intro</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>image</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>图片路径（相对）</td>
-    </tr>
-    <tr>
-      <td>slider</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>轮播图，图片路径（相对）用 ‘;’分开</td>
-    </tr>
-    <tr>
-      <td>video</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td>暂不支持</td>
-    </tr>
-  </tbody>
-</table>
-
-<hr />
+ 		<h1 id="javascript-">JavaScript 变量提升</h1>
 
 <blockquote>
-  <p>其他未尽事宜 联系 qq 1010420114</p>
+  <p>JavaScript Hoisting</p>
 </blockquote>
 
+<hr />
+<blockquote>
+  <p>JavaScript 的历史原因决定JavaScript有许多问题，和让人容易忽略的地方。但都是重要的。</p>
+</blockquote>
+
+<h3 id="var-">1.  var 声明变量</h3>
+
+<h4 id="hoisting">声明提升(hoisting)</h4>
+
+<p>先看一段代码</p>
+
+<pre><code>var v = 'hoisting';
+function test_hoisting(){
+	console.log(v);
+	var v = 'hoisted';
+}
+</code></pre>
+
+<p>结果是什么呢：<code>undefined</code>.
+因为 <code>声明提升</code>的原因 以上代码 和下面的代码 同理。</p>
+
+<pre><code>var v = 'hoisting';
+function test_hoisting(){
+	var v;
+	console.log(v);
+	v = 'hoisted';
+}
+</code></pre>
+
+<p>function作用域里的变量 遮盖了上层作用域变量，声明又被提升 所以就会出现<code>undefined</code></p>
+
+<blockquote>
+  <p><code>声明提升</code>:是JavaScript 所有声明默认的行为（包括<code>function</code>） 提升的范围就是当前作用域的顶部。
+ JavaScript 只是提升声明，并不提升初始化。</p>
+</blockquote>
+
+<p>再看下面的代码：</p>
+
+<pre><code>var test_hoisting2 = 3;
+
+function test_hoisting2(){
+
+}
+console.log(typeof test_hoisting2);
+</code></pre>
+
+<p>结果是 <code>number</code>为什么？</p>
+
+<p>之前说过<code>function</code> 也会提升。由于在 <code>JavaScript</code>中 <code>function</code>是一等公民，<code>function</code> 会先提升. 
+<strong>函数的声明 比 变量的声明 具有高的优先级。</strong> 
+所以 <code>function test_hoisting2</code> 优先提升，被 <code>var test_hoisting2</code>覆盖。</p>
+
+<blockquote>
+  <p>关于变量提升的问题都大同小异，在实际开发中要避免这个特性，把变量定义在顶部。就会避免出现不必要的问题。</p>
+</blockquote>
+
+<p>在 Chrome 里有个奇怪的问题：</p>
+
+<pre><code>console.log(typeof name);
+var name = "Chrome";
+console.log(typeof name); 
+</code></pre>
+
+<p>经过上面示例，我们期待的结果是 <code>undefined</code> <code>string</code>. 但是结果却都是 <code>string</code>.如果我们再试一次，将<code>name</code>换成 其他的 <code>name2</code> 就是我们预期的结果了.原因是 
+<strong>Chrome</strong>
+可能初始化 <code>name</code> 导致我们使用时，已经声明完成，所以就是<code>string</code>了</p>
+
+<hr />
+
+<h3 id="section">2. 关于函数提升</h3>
+
+<pre><code>console.log(typeof foo);
+console.log(typeof bar);
+console.log(typeof add);
+//函数的声明
+function foo(){
+    alert('foo');
+}
+//命名函数表达式
+var bar = function(){
+    alert('bar');
+};
+// 函数表达式-匿名函数
+var add = function(a,b){
+return a+b;
+};
+</code></pre>
+
+<p>结果是<code>function</code> <code>undefined</code> <code>undefined</code> 因为 <code>foo()</code>是根据<code>function</code>提升的。
+<code>foo()</code>被提升到了顶部且能正常运行，而bar()的定义并没有得到提升，
+仅有它的声明被提升，所以，当执行bar()的时候显示结果为undefined而不是作为函数来使用。</p>
+
+<hr />
+
+<p>一个方法总结声明<code>提升</code></p>
+
+<pre><code>var global = 'global';
+function foo(){alert(global);}
+
+function hoist(){
+    console.log(typeof foo);//function
+    console.log(typeof bar);//undefined
+    console.log(typeof global);//undefined
+
+    foo();//'undefined' global仅提升声明，并未提升初始化。
+    bar();//TypeError: 'undefined' is not a function  
+    var global = 'local';
+    //变量foo以及实现者被提升
+    function foo(){
+        console.log(global);
+    }
+
+    //仅变量bar被提升，函数实现部分 并未被提升
+    var bar = function(){
+        alert(global);
+    };
+}
+
+hoist(); 
+</code></pre>
 
 	</div>
 	</section>
@@ -167,17 +220,28 @@
 				<div class="widget">
 					<h5 class="widgetheading">友情链接</h5>
 					<ul class="link-list">
-						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
-						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+						<li><a href="http://www.qeo.cn/31/" target="_blank">网络工程师培训</a></li>
+						<li><a href="http://www.lingjianfeng.com/" target="_blank">Cocos2d-JS 教程</a></li>
 					</ul>
 				</div>
 			</div>
-			<div class="col-lg-3">
+<!-- 			<div class="col-lg-3">
 				<div class="widget">
 					<h5 class="widgetheading">Flickr photostream</h5>
 					<div class="flickr_badge">
 						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
+					</div>
+					<div class="clear">
+					</div>
+				</div>
+			</div> -->
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Collaborators</h5>
+						<div class="flickr_badge" id="authors_div">
+							
+					   
+					    
 					</div>
 					<div class="clear">
 					</div>
@@ -191,7 +255,7 @@
 				<div class="col-lg-6">
 					<div class="copyright">
 						<p>
-							<span>&copy; Moderna 2014 All right reserved. By </span><a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>
+							<span>&copy; Js-ku 2014 All right reserved. By </span><a href="https://github.com/Da-Li/js-ku" target="_blank">GitHub</a>
 						</p>
 					</div>
 				</div>
@@ -208,11 +272,13 @@
 		</div>
 	</div>
 	</footer>
+
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<input type="hidden" id="baseurl" value=""/>
 <script src="/res/js/jquery.js"></script>
 <script src="/res/js/jquery.easing.1.3.js"></script>
 <script src="/res/js/bootstrap.min.js"></script>
@@ -226,5 +292,26 @@
 <script src="/res/js/custom.js"></script>
 <script src="/res/js/js-ku.js"></script>
 <script src="/res/js/google-code-prettify/run_prettify.js?lang-js&skin=tomorrow-night"></script>
+	<script>
+	$(document).ready(function() {
+	    $.getJSON("/res/authors/authors.json",
+		    function(data) {
+		      $.each(data,
+			      function(i, item) {
+			        var content = '<div class="flickr_badge_image"><img src="'+$("#baseurl").val()+'/'+item.img_url+'" alt="'+item.title+'" title="'+item.title+'"> </div>';
+			        $("#authors_div").append(content);
+			      });
+		    });
+	  	});
+		/*百度统计*/
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?d71753d88b8facfc31e2ef23e6a4f540";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
 </body>
 </html>
