@@ -7,6 +7,7 @@ keyword: js-ku协作开发，github 教程，jekyll教程
 author: li
 show_type: image
 show_intro: /res/img/page/test/open-source.png
+tags: [jekyll]
 ---
 
 # js-ku协作开发文档
