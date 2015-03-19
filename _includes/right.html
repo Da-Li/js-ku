@@ -16,27 +16,20 @@
 					</ul>
 				</div>
 				<div class="widget">
-					<h5 class="widgetheading">Latest posts</h5>
+					<h5 class="widgetheading">开发帮助</h5>
 					<ul class="recent">
 						<li>
-						<img src="{{ site.baseurl }}/res/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-						<h6><a href="#">Lorem ipsum dolor sit</a></h6>
+						<a href="{{ site.baseurl }}/test/md-test.html" target="_blank"><img src="{{ site.baseurl }}/res/img/slides/1.jpg" class="pull-left" alt="js开发库" />
+						<h6><a href="{{ site.baseurl }}/test/md-test.html" target="_blank">协同合作，开发文档。</a></h6>
 						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
+							 js-ku 开源网站项目。
 						</p>
 						</li>
 						<li>
-						<a href="#"><img src="{{ site.baseurl }}/res/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-						<h6><a href="#">Maiorum ponderum eum</a></h6>
+						<a href="{{ site.baseurl }}/front-end/development/github.html" target="_blank"><img src="{{ site.baseurl }}/res/img/slides/3.jpg" class="pull-left" alt="github 使用教程" /></a>
+						<h6><a href="{{ site.baseurl }}/front-end/development/github.html" target="_blank">git本地如何上传项目github。</a></h6>
 						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
-						</p>
-						</li>
-						<li>
-						<a href="#"><img src="{{ site.baseurl }}/res/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-						<h6><a href="#">Et mei iusto dolorum</a></h6>
-						<p>
-							 Mazim alienum appellantur eu cu ullum officiis pro pri
+							 github 使用教程
 						</p>
 						</li>
 					</ul>
@@ -44,12 +37,10 @@
 				<div class="widget">
 					<h5 class="widgetheading">Popular tags</h5>
 					<ul class="tags">
-						<li><a href="#">Web design</a></li>
-						<li><a href="#">Trends</a></li>
-						<li><a href="#">Technology</a></li>
-						<li><a href="#">Internet</a></li>
-						<li><a href="#">Tutorial</a></li>
-						<li><a href="#">Development</a></li>
+						{% for tag in site.tags %}
+						<li><a href="javascript:void(0)">{{tag[0]}}</a></li>
+						{% endfor %}
+						
 					</ul>
 				</div>
 				</aside>
