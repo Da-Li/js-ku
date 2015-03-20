@@ -24,6 +24,7 @@ show_intro: /res/img/slides/angular-require.jpg
     http://www.ngnice.com/
 	requireJS
 	http://requirejs.org/
+	
 ### Step-1 ###
 方便理解，通过配置AngularJS官方的Angular-RequireJS-Seed实例来构建第一个require&angular的项目:
 	
@@ -147,7 +148,7 @@ show_intro: /res/img/slides/angular-require.jpg
 	], function () {});
 
 
-你不需要define干了什么，只要理解 xx这个模块依赖于./my-ctrl-1和./my-ctrl-2这两个模块就行，至于怎么将它的对象传递过来,怎么找到的，requireJS自己会处理，这和angular和相似（-_-|angulr本身模块化程度就很高了）：
+你不需要define干了什么，只要理解 xx这个模块依赖于./my-ctrl-1和./my-ctrl-2这两个模块就行，至于怎么将它的对象传递过来,怎么找到的，requireJS自己会处理，这和angular和相似（angulr本身模块化程度就很高了）：
 
 	angular.module('myApp', [  
 	  'ngRoute',  
