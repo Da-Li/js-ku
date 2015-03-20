@@ -1,5 +1,6 @@
 ---
 layout: nil
+encoding: utf-8
 ---
 [
     {% for post in site.posts %}
